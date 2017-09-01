@@ -15,3 +15,9 @@ func main() {
 	o := orm.NewOrm()
 	o.Using("default")
 }
+
+func init() {
+	orm.RegisterDriver("mysql", orm.DRMySQL)
+
+	orm.RegisterDataBase("default", "mysql", "root:root@/skolar?charset=utf8")
+}
