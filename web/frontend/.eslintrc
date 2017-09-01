@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "max-len": [1, 180, 2, {"ignoreComments": true}],
+    "indent": [2, 4],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-indent": 0,
+    "prefer-template": 0,
+    "no-shadow": 0,
+    "no-underscore-dangle": 0,
+    "no-undef": 0,
+    "arrow-parens": 0,
+    "import/prefer-default-export": 0
+  }
+}
