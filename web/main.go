@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "go-bank-web/routers"
+	_ "skolar/web/routers"
 
 	_ "github.com/go-sql-driver/mysql"
 
