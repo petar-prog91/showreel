@@ -1,0 +1,180 @@
+.mainbar {
+
+    &__base {
+        color: $white;
+        height: 100vh;
+        overflow: scroll;
+        width: 300px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        transition: all .5s ease;
+
+        &--is-minimized {
+            right: -200px;
+        }
+    }
+
+    &__container {
+        padding: 15px;
+    }
+
+    &__content {
+        overflow: hidden;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        transition: all .5s ease;
+
+        .mainbar__base--is-minimized & {
+            opacity: 0;
+        }
+    }
+
+    &__actionBtn {
+        @include span(4);
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        text-align: center;
+        height: 65px;
+
+        &:last-child {
+            @include span(4 last);
+        }
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        a, button {
+            background: none;
+            text-decoration: none;
+            color: $white;
+            padding: 10px;
+            box-sizing: border-box;
+            display: block;
+            border: none;
+            cursor: pointer;
+
+            i {
+                width: 100%;
+                clear: both;
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+
+            span {
+                font-size: 12px;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &__topBar {
+        overflow: hidden;
+
+        ul {
+            margin-left: 0;
+        }
+    }
+
+    &__profileImage {
+        width: 150px;
+        overflow: hidden;
+        height: 150px;
+        margin: 30px auto 0;
+        border-radius: 100%;
+        padding: 10px;
+        border: 1px solid $white;
+
+        img {
+            max-width: 100%;
+            width: 100%;
+            border-radius: 100%;
+        }
+    }
+
+    &__profileName {
+        font-size: 16px;
+        color: $white;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    &__currentBalance {
+        background: rgba(255, 255, 255, 0.2);
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px 10px 15px;
+        width: 100%;
+
+        p {
+            font-size: 14px;
+            line-height: 1;
+        }
+    }
+
+    &__balanceNumbers {
+        font-size: 32px;
+        font-weight: bold;
+        margin-top: 10px;
+
+        .currency {
+            font-size: 22px;
+            font-weight: normal;
+            margin-right: 5px;
+        }
+
+        .decimals {
+            font-size: 22px;
+            font-weight: normal;
+        }
+    }
+
+    &__numbers {
+        background: rgba(255, 255, 255, 0.2);
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px 10px 15px;
+        width: 100%;
+
+        .row {
+            overflow: hidden;
+            width: 100%;
+            clear: both;
+            font-size: 16px;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+            font-weight: bold;
+        }
+
+        .red {
+            color: red;
+            margin-right: 5px;
+        }
+
+        .green {
+            color: greenyellow;
+            margin-right: 5px;
+        }
+    }
+}

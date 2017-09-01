@@ -1,0 +1,25 @@
+.content {
+
+    &__base {
+        background: $white;
+        float: left;
+        margin-left: 100px;
+        height: 100vh;
+        overflow: scroll;
+        padding: 15px;
+        width: calc(100% - 400px);
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        transition: all .5s ease;
+
+        &--is-maximized {
+            width: calc(100% - 200px);
+        }
+    }
+
+    &__container {
+        padding: 15px;
+    }
+}

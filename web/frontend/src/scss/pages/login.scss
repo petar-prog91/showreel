@@ -1,0 +1,10 @@
+.loginPage {
+
+    &__base {
+        @include span(12);
+
+        @include susy-media($bp-medium) {
+            @include span(6);
+        }
+    }
+}

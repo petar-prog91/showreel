@@ -1,0 +1,54 @@
+.sidebar {
+
+    &__base {
+        height: 100vh;
+        color: $white;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+    }
+
+    &__container {
+        padding: 15px;
+    }
+
+    &__navList {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    &__navItem {
+        text-align: center;
+        padding-bottom: 15px;
+        border-bottom: 1px solid $white;
+        opacity: 0.6;
+        line-height: 18px;
+
+        i {
+            width: 100%;
+            clear: both;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 22px;
+        }
+
+        a {
+            color: $white;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        &:not(:first-child) {
+            margin-top: 15px;
+        }
+
+        &:hover, &:focus, &.active {
+            opacity: 1;
+        }
+
+        &:last-child {
+            border: none;
+        }
+    }
+}
