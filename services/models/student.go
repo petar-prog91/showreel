@@ -4,6 +4,8 @@ type Student struct {
 	ID         int    `db:"id, omitempty"`
 	FirstName  string `db:"first_name, omitempty"`
 	LastName   string `db:"last_name, omitempty"`
+	Username   string `db:"username, omitempty"`
+	Password   string `db:"password, omitempty"`
 	Address    string `db:"address, omitempty"`
 	City       string `db:"city, omitempty"`
 	ZipCode    int    `db:"zipcode, omitempty"`
