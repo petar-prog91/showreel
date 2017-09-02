@@ -11,4 +11,5 @@ type Student struct {
 	Phone      string `db:"phone, omitempty"`
 	EnrollDate string `db:"enrolldate, omitempty"`
 	Parent     int    `db:"parent, omitempty"`
+	ClassGroup int    `db:"class_group, omitempty"`
 }
