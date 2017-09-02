@@ -14,6 +14,12 @@ const SideBar = () => (
                         Home
                     </Link>
                 </li>
+                <li className="sidebar__navItem">
+                    <Link to="/">
+                        <i className="fa fa-fa-address-book" />
+                        Classes
+                    </Link>
+                </li>
             </ul>
 
         </div>
