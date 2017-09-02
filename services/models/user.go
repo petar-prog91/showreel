@@ -11,6 +11,7 @@ type User struct {
 	City      string `db:"city, omitempty"`
 	ZipCode   int    `db:"zipcode, omitempty"`
 	Email     string `db:"email, omitempty"`
+	Phone     string `db:"phone, omitempty"`
 }
 
 type UserRoles struct {
