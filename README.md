@@ -3,9 +3,44 @@
 SkolaR is a management system for schools targeted toward teachers for recording feedback about students, and for parents to have access to that feedback.
 What is the reason for starting this project?
 
-- I started this project because I felt that I should contribute to Open Source, but also I wanted to have a side project which I can invest my time into and possibly stumble upon problems which need solving, which I do not have a chance to work on at my daily work routine. I believe this will push me to invest my time into learning new stuff, thinking outside the box and make continous development of my career.
 
-# Requirements
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### Requirements
+
+Before starting the project, you need to have these requirements installed on your sistem. There will be Docker image for this project, so it's easier to run and deploy.
+
+```
 - GoLang 1.7
 - MySQL
 - Node.js >= 8.0.0
+```
+
+### Installing
+
+TODO
+
+## Running the tests
+
+TODO
+
+## Deployment
+
+TODO
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Petar Milutinovic** - *Initial work and idea* - [PurpleBooth](https://github.com/petar-prog91)
+
+## License
+
+This project is licensed under the GNU GENERAL PUBLIC License - see the [LICENSE.md](LICENSE.md) file for details
