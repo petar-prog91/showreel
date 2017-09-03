@@ -39,7 +39,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Petar Milutinovic** - *Initial work and idea* - [PurpleBooth](https://github.com/petar-prog91)
+* **Petar Milutinovic** - *Initial work and idea* - [Petar-Prog91](https://github.com/petar-prog91)
 
 ## License
 
