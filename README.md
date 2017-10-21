@@ -14,11 +14,16 @@ Before starting the project, you need to have these requirements installed on yo
 - GoLang 1.7
 - MySQL
 - Node.js >= 8.0.0
+- BeeGo (github.com/astaxie/beego)
 ```
 
 ### Installing
+- Install [ShowReel API project](https://github.com/petar-prog91/showreel-api) and follow installation instructions
+- Install above requirements for this project
+- Checkout master branch of this project
+- Run command `bee run showreel`
+- Visit `http://localhost:8085` and log in with admin data (admin / admin12345)
 
-TODO
 
 ## Running the tests
 
