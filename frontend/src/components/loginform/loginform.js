@@ -22,7 +22,6 @@ class LoginForm extends React.Component {
                 username: data.username,
                 password: data.password,
             }),
-            mode: 'no-cors',
         })
         .then((response) => response.json())
         .then((tokenString) => tokenString);

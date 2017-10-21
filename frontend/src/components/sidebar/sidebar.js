@@ -16,10 +16,16 @@ const SideBar = () => (
                 </li>
                 <li className="sidebar__navItem">
                     <Link to="/">
-                        <i className="fa fa-fa-address-book" />
-                        Classes
+                        <i className="fa fa-" />
+                        Not Watched
                     </Link>
                 </li>
+                <li className="sidebar__navItem">
+                <Link to="/">
+                    <i className="fa fa-" />
+                    Explore
+                </Link>
+            </li>
             </ul>
 
         </div>

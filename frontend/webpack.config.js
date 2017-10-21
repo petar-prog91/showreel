@@ -7,6 +7,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
+    devtool: '#cheap-module-source-map',
     entry: [APP_DIR + '/app.js', APP_DIR + '/scss/main.scss'],
     output: {
         path: BUILD_DIR,
