@@ -15,7 +15,7 @@ const MainBar = ({ isOpen, toggleMainBar, logOutUser }) => (
                     <li className="mainbar__actionBtn">
                         <button onClick={() => toggleMainBar()}>
                             <i className="fa fa-bars" />
-                            <span>Minimize</span>
+                            <span>{isOpen ? 'Maximize' : 'Minimize'}</span>
                         </button>
                     </li>
                     <li className="mainbar__actionBtn">
