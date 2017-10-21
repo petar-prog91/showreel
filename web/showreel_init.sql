@@ -16,12 +16,6 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `password` text,
-  `user_role` int(11) DEFAULT NULL,
-  `first_name` text,
-  `last_name` text,
-  `address` text,
-  `city` text,
-  `zipcode` int(11) DEFAULT NULL,
   `email` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -30,39 +24,12 @@ CREATE TABLE `user` (
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
-INSERT INTO `user` (`id`, `username`, `password`, `user_role`, `first_name`, `last_name`, `address`, `city`, `zipcode`, `email`)
+INSERT INTO `user` (`id`, `username`, `password`, `email`)
 VALUES
-	(1,'admin','$2a$10$06pcLFSy0tlXRgbrCY33U.C9mwBjwDIp1Ee1/g1p7OYNKvtibM7Ua',3,'Admin','Super','Crazy address','München',80636,'admin@yourwebsite.com');
+	(1,'admin','$2a$10$06pcLFSy0tlXRgbrCY33U.C9mwBjwDIp1Ee1/g1p7OYNKvtibM7Ua','admin@yourwebsite.com');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table user_roles
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `user_roles`;
-
-CREATE TABLE `user_roles` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `role_name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-LOCK TABLES `user_roles` WRITE;
-/*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-
-INSERT INTO `user_roles` (`id`, `role_name`)
-VALUES
-	(1,'TEACHER'),
-	(2,'ADMIN'),
-	(3,'SUPER_ADMIN'),
-  (4,'PARENT');
-
-/*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
