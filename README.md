@@ -1,4 +1,4 @@
-# SkolaR
+# ShowReel
 
 ShowReel is another application for tracking TV shows. Yep. I am a TV shows fan, and I watch a lot, but I am dissapointed with the current available applications on the web, so I decided to make one that fits me correctly. Like it, hate it, don't mind the feedback :).
 

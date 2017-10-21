@@ -2,7 +2,7 @@ import React from 'react';
 
 const Logo = () => (
     <div className="logo__base">
-        <span>SkolaR</span>
+        <span>ShowReel</span>
     </div>
 );
 

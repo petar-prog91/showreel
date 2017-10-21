@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"skolar/web/models"
+	"showreel/web/models"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

@@ -1405,7 +1405,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ 3);\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Logo = function Logo() {\n    return _react2.default.createElement(\n        \"div\",\n        { className: \"logo__base\" },\n        _react2.default.createElement(\n            \"span\",\n            null,\n            \"SkolaR\"\n        )\n    );\n};\n\nexports.default = Logo;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTExLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vL3NyYy9jb21wb25lbnRzL2xvZ28vbG9nby5qcz8yOWU0Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmNvbnN0IExvZ28gPSAoKSA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJsb2dvX19iYXNlXCI+XG4gICAgICAgIDxzcGFuPlNrb2xhUjwvc3Bhbj5cbiAgICA8L2Rpdj5cbik7XG5cbmV4cG9ydCBkZWZhdWx0IExvZ287XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gc3JjL2NvbXBvbmVudHMvbG9nby9sb2dvLmpzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBOzs7OztBQUNBO0FBQUE7QUFDQTtBQUFBO0FBQ0E7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQURBO0FBREE7QUFDQTtBQUtBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///111\n");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ 3);\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar Logo = function Logo() {\n    return _react2.default.createElement(\n        \"div\",\n        { className: \"logo__base\" },\n        _react2.default.createElement(\n            \"span\",\n            null,\n            \"ShowReel\"\n        )\n    );\n};\n\nexports.default = Logo;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTExLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vL3NyYy9jb21wb25lbnRzL2xvZ28vbG9nby5qcz8yOWU0Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmNvbnN0IExvZ28gPSAoKSA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJsb2dvX19iYXNlXCI+XG4gICAgICAgIDxzcGFuPlNrb2xhUjwvc3Bhbj5cbiAgICA8L2Rpdj5cbik7XG5cbmV4cG9ydCBkZWZhdWx0IExvZ287XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gc3JjL2NvbXBvbmVudHMvbG9nby9sb2dvLmpzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUNBOzs7OztBQUNBO0FBQUE7QUFDQTtBQUFBO0FBQ0E7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQURBO0FBREE7QUFDQTtBQUtBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///111\n");
 
 /***/ }),
 /* 112 */
@@ -4718,8 +4718,8 @@ eval("(function(self) {\n  'use strict';\n\n  if (self.fetch) {\n    return\n  }
   \***********************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/petarmilutinovic/GOLANG/src/skolar/web/frontend/src/app.js */180);
-module.exports = __webpack_require__(/*! /Users/petarmilutinovic/GOLANG/src/skolar/web/frontend/src/scss/main.scss */181);
+__webpack_require__(/*! /Users/petarmilutinovic/GOLANG/src/showreel/web/frontend/src/app.js */180);
+module.exports = __webpack_require__(/*! /Users/petarmilutinovic/GOLANG/src/showreel/web/frontend/src/scss/main.scss */181);
 
 
 /***/ })

@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"skolar/web/controllers"
+	"showreel/web/controllers"
 
 	"github.com/astaxie/beego"
 )

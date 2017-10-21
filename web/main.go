@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "skolar/web/routers"
+	_ "showreel/web/routers"
 
 	_ "github.com/go-sql-driver/mysql"
 
@@ -19,5 +19,5 @@ func main() {
 func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 
-	orm.RegisterDataBase("default", "mysql", "root:root@/skolar?charset=utf8")
+	orm.RegisterDataBase("default", "mysql", "root:root@/showreel?charset=utf8")
 }

@@ -1,5 +1,5 @@
 
-<h1 class="logo">Welcome to SkolaR</h1>
+<h1 class="logo">Welcome to ShowReel</h1>
 <div class="description">
     This is registration page
 </div>
