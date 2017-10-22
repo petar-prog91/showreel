@@ -2,29 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { SideBar, MainBar } from '../components';
-import { Login } from '../pages';
 
-const App = ({ isLoggedIn, children, isOpen }) => {
-    if (!isLoggedIn) {
-        return (
-            <div className="content__base content__base--is-maximized">
-                <Login />
-            </div>
-        );
-    }
-
-    return (
-        <div>
-            <SideBar />
-
-            <div className={'content__base ' + (isOpen ? 'content__base--is-maximized' : '')}>
-                {children}
-            </div>
-
-            <MainBar />
+const App = ({ isLoggedIn, children, isOpen }) => (
+    <div>
+        { isLoggedIn ?  <SideBar /> : '' }
+       
+        <div className={'content__base ' + (isOpen ? 'content__base--is-maximized ' : '') + (isLoggedIn ? '' : 'content__base--is-maximized')}>
+            {children}
         </div>
-    );
-};
+
+        { isLoggedIn ?  <MainBar /> : '' }
+    </div>
+);
 
 App.propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,

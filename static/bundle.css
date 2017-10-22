@@ -150,6 +150,9 @@ div {
 .hidden-sm {
   display: none; }
 
+.hidden {
+  display: none; }
+
 html {
   box-sizing: border-box; }
 

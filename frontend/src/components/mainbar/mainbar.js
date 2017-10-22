@@ -6,7 +6,7 @@ import { toggleMainBar } from '../../actions/mainBar';
 import { logOutUser } from '../../actions/login';
 
 const MainBar = ({ isOpen, toggleMainBar, logOutUser }) => (
-    <div className={'mainbar__base ' + (isOpen ? 'mainbar__base--is-minimized' : '')}>
+    <div className={'mainbar__base ' + (isOpen ? 'mainbar__base--is-minimized ' : '')}>
 
         <div className="mainbar__container">
 
