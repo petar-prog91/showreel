@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types';
 
 import { SKOLAR_API } from '../../constants';
 import { registerUser } from '../../actions/register';
+import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
 
 class RegisterForm extends React.Component {
     static statusHandle(res) {
@@ -30,8 +31,10 @@ class RegisterForm extends React.Component {
                 password: data.password,
             }),
         })
+        .then(this.statusHandle)
         .then((response) => response.json())
-        .then((tokenString) => tokenString);
+        .then((tokenString) => tokenString)
+        .catch(error => Promise.reject(error));
     }
 
     registerUser(data) {
@@ -51,7 +54,8 @@ class RegisterForm extends React.Component {
             }),
         })
         .then(this.statusHandle)
-        .then((response) => response.json());
+        .then((response) => response.json())
+        .catch(error => Promise.reject(error));
     }
 
     handleSubmit(val) {
