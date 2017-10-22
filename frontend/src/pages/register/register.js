@@ -7,7 +7,7 @@ const Register = () => (
 
     <div className="registerPage__base">
         <RegisterForm />
-        <p>{'Already have account? '} + <Link to="/login">Click here</Link> + {'to login'}</p>
+        <p>{'Already have account? '} <Link to="/login">Click here</Link> {'to login'}</p>
     </div>
 
 );

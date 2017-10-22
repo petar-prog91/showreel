@@ -6,14 +6,9 @@ import { PropTypes } from 'prop-types';
 
 import { SKOLAR_API } from '../../constants';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
+import statusHandle from '../../utils/statusHandle';
 
 class LoginForm extends React.Component {
-    static statusHandle(res) {
-        if (!res.ok) {
-            throw new Error(res.statusText);
-        }
-        return res;
-    }
 
     getJWTToken(data) {
         this.props.dispatch(fetchJWTToken());
@@ -30,7 +25,7 @@ class LoginForm extends React.Component {
                 password: data.password,
             }),
         })
-        .then(this.statusHandle)
+        .then(statusHandle)
         .then(response => response.json())
         .then(tokenString => tokenString)
         .catch(error => Promise.reject(error));
