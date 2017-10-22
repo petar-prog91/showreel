@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import fetch from 'isomorphic-fetch';
 import { PropTypes } from 'prop-types';
 
-import { SKOLAR_API } from '../../constants';
+import { SHOWREEL_API } from '../../constants';
 import { registerUser } from '../../actions/register';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
 import statusHandle from '../../utils/statusHandle';
@@ -13,7 +13,7 @@ class RegisterForm extends React.Component {
     getJWTToken(data) {
         this.props.dispatch(fetchJWTToken());
 
-        return fetch(`${SKOLAR_API + 'authenticate/'}`, {
+        return fetch(`${SHOWREEL_API + 'authenticate/'}`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -34,7 +34,7 @@ class RegisterForm extends React.Component {
     registerUser(data) {
         this.props.dispatch(registerUser());
 
-        return fetch(`${SKOLAR_API + 'users/'}`, {
+        return fetch(`${SHOWREEL_API + 'users/'}`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
