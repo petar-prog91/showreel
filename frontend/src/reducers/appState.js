@@ -16,7 +16,7 @@ const appState = (state = initialState, action) => {
             isLoggedIn: false,
         });
     case SAVE_JWT_TOKEN:
-        window.sessionStorage.setItem('SKOLAR_JWTToken', action.value);
+        window.sessionStorage.setItem('SHOWREEL_JWTToken', action.value);
 
         return Object.assign({}, state, {
             jwtToken: action.value,
