@@ -6,3 +6,4 @@ export const LOG_OUT = 'LOG_OUT';
 export const FETCH_JWT_TOKEN = 'FETCH_JWT_TOKEN';
 export const SAVE_JWT_TOKEN = 'SAVE_JWT_TOKEN';
 export const SKOLAR_API = 'http://localhost:8080/api/';
+export const REGISTER_USER = 'REGISTER_USER';

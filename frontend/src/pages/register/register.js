@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { LoginForm } from '../../components';
+import { RegisterForm } from '../../components';
 
 const Register = () => (
 
     <div className="registerPage__base">
-        <LoginForm />
+        <RegisterForm />
     </div>
 
 );

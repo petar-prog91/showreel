@@ -11,6 +11,7 @@ import {
     Home,
     Settings,
     Login,
+    Register,
     NotFound,
 } from './pages';
 
@@ -32,6 +33,7 @@ ReactDOM.render(
                 <Route path="/" component={Home} />
                 <Route path="/settings" component={Settings} />
                 <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
                 <Route path="/*" component={NotFound} />
             </Route>
         </Router>
