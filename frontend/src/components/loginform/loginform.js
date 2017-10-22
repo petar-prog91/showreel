@@ -23,8 +23,10 @@ class LoginForm extends React.Component {
                 password: data.password,
             }),
         })
-        .then((response) => response.json())
-        .then((tokenString) => tokenString);
+        .then(this.statusHandle)
+        .then(response => response.json())
+        .then(tokenString => tokenString)
+        .catch(error => Promise.reject(error));
     }
 
     handleSubmit(val) {
@@ -32,6 +34,13 @@ class LoginForm extends React.Component {
             this.props.dispatch(saveJWTToken(token));
             this.props.dispatch(logInUser());
         });
+    }
+
+    statusHandle(res) {
+        if (!res.ok) {
+            throw new Error(res.statusText);
+        }
+        return res;
     }
 
     render() {

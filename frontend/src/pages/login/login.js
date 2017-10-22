@@ -7,7 +7,7 @@ const Login = () => (
 
     <div className="loginPage__base">
         <LoginForm />
-        <p>Don't have an account? <Link to="/register">Click here</Link> to register</p>
+        <p>{'Don\'t have an account?'} <Link to="/register">Click here</Link> {'to register'}</p>
     </div>
 
 );
