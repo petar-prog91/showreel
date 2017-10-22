@@ -8,6 +8,13 @@ import { SKOLAR_API } from '../../constants';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
 
 class LoginForm extends React.Component {
+    static statusHandle(res) {
+        if (!res.ok) {
+            throw new Error(res.statusText);
+        }
+        return res;
+    }
+
     getJWTToken(data) {
         this.props.dispatch(fetchJWTToken());
 
@@ -34,13 +41,6 @@ class LoginForm extends React.Component {
             this.props.dispatch(saveJWTToken(token));
             this.props.dispatch(logInUser());
         });
-    }
-
-    statusHandle(res) {
-        if (!res.ok) {
-            throw new Error(res.statusText);
-        }
-        return res;
     }
 
     render() {

@@ -8,6 +8,13 @@ import { SKOLAR_API } from '../../constants';
 import { registerUser } from '../../actions/register';
 
 class RegisterForm extends React.Component {
+    static statusHandle(res) {
+        if (!res.ok) {
+            throw new Error(res.statusText);
+        }
+        return res;
+    }
+
     getJWTToken(data) {
         this.props.dispatch(fetchJWTToken());
 
@@ -43,6 +50,7 @@ class RegisterForm extends React.Component {
                 email: data.email,
             }),
         })
+        .then(this.statusHandle)
         .then((response) => response.json());
     }
 

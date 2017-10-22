@@ -5,13 +5,13 @@ import { SideBar, MainBar } from '../components';
 
 const App = ({ isLoggedIn, children, isOpen }) => (
     <div>
-        { isLoggedIn ?  <SideBar /> : '' }
-       
+        { isLoggedIn ? <SideBar /> : '' }
+
         <div className={'content__base ' + (isOpen ? 'content__base--is-maximized ' : '') + (isLoggedIn ? '' : 'content__base--is-maximized')}>
             {children}
         </div>
 
-        { isLoggedIn ?  <MainBar /> : '' }
+        { isLoggedIn ? <MainBar /> : '' }
     </div>
 );
 

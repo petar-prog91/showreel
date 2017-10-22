@@ -30,10 +30,30 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path="/app" component={App}>
                 <IndexRoute component={Home} />
-                <Route path="/" component={Home} />
-                <Route path="/settings" component={Settings} />
-                <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
+                <Route
+                  path="/"
+                  component={() => (
+                    store.getState().appState.isLoggedIn ? (<Home />) : (<Login />)
+                  )}
+                />
+                <Route
+                  path="/settings"
+                  component={() => (
+                    store.getState().appState.isLoggedIn ? (<Settings />) : (<Login />)
+                  )}
+                />
+                <Route
+                  path="/login"
+                  component={() => (
+                    store.getState().appState.isLoggedIn ? (<Home />) : (<Login />)
+                  )}
+                />
+                <Route
+                  path="/register"
+                  component={() => (
+                    store.getState().appState.isLoggedIn ? (<Home />) : (<Register />)
+                  )}
+                />
                 <Route path="/*" component={NotFound} />
             </Route>
         </Router>
