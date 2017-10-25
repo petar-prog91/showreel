@@ -5,7 +5,7 @@ import { TV_MAZE_API } from '../../constants';
 import statusHandle from '../../utils/statusHandle';
 
 import ShowList from '../../components/showlist/showlist';
-import loadShows from '../../actions/shows';
+import { loadShows } from '../../actions/shows';
 
 const NotWatched = ({ showsList, loadShows }) => {
     fetch(`${TV_MAZE_API + '/search/shows?q=rebels'}`)
