@@ -15,15 +15,15 @@ const SideBar = () => (
                     </Link>
                 </li>
                 <li className="sidebar__navItem">
-                    <Link to="/">
-                        <i className="fa fa-video-camera" />
-                        Not Watched
+                    <Link to="/explore">
+                        <i className="fa fa-compass" />
+                        Explore
                     </Link>
                 </li>
                 <li className="sidebar__navItem">
-                    <Link to="/">
-                        <i className="fa fa-compass" />
-                        Explore
+                    <Link to="/not-watched">
+                        <i className="fa fa-video-camera" />
+                        Not Watched
                     </Link>
                 </li>
             </ul>

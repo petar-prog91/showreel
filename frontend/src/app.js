@@ -13,6 +13,7 @@ import {
     Login,
     Register,
     NotFound,
+    NotWatched,
 } from './pages';
 
 const reducer = combineForms({
@@ -54,7 +55,18 @@ ReactDOM.render(
                     store.getState().appState.isLoggedIn ? (<Home />) : (<Register />)
                   )}
                 />
-                <Route path="/*" component={NotFound} />
+                <Route
+                  path="/not-watched"
+                  component={() => (
+                    store.getState().appState.isLoggedIn ? (<NotWatched />) : (<Login />)
+                  )}
+                />
+                <Route
+                  path="/*"
+                  component={() => (
+                    store.getState().appState.isLoggedIn ? (<NotFound />) : (<Login />)
+                  )}
+                />
             </Route>
         </Router>
     </Provider>,
