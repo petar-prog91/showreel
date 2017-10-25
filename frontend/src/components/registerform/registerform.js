@@ -9,9 +9,9 @@ import { registerUser } from '../../actions/register';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
 import statusHandle from '../../utils/statusHandle';
 
-class RegisterForm extends React.Component {
-    getJWTToken(data) {
-        this.props.dispatch(fetchJWTToken());
+const RegisterForm = ({ dispatch }) => {
+    const getJWTToken = (data) => {
+        dispatch(fetchJWTToken());
 
         return fetch(`${SHOWREEL_API + 'authenticate/'}`, {
             method: 'POST',
@@ -29,10 +29,10 @@ class RegisterForm extends React.Component {
         .then(response => response.json())
         .then(tokenString => tokenString)
         .catch(error => Promise.reject(error));
-    }
+    };
 
-    registerUser(data) {
-        this.props.dispatch(registerUser());
+    const registerUserFn = (data) => {
+        dispatch(registerUser());
 
         return fetch(`${SHOWREEL_API + 'users/'}`, {
             method: 'POST',
@@ -50,47 +50,45 @@ class RegisterForm extends React.Component {
         .then(statusHandle)
         .then(response => response.json())
         .catch(error => Promise.reject(error));
-    }
+    };
 
-    handleSubmit(val) {
-        this.registerUser(val)
-        .then(() => this.getJWTToken(val))
+    const handleSubmit = (val) => {
+        registerUserFn(val)
+        .then(() => getJWTToken(val))
         .then((token) => {
-            this.props.dispatch(saveJWTToken(token));
-            this.props.dispatch(logInUser());
+            dispatch(saveJWTToken(token));
+            dispatch(logInUser());
         });
-    }
+    };
 
-    render() {
-        return (
-            <Form model="userRegister" className="form" onSubmit={(val) => this.handleSubmit(val)}>
+    return (
+        <Form model="userRegister" className="form" onSubmit={(val) => handleSubmit(val)}>
 
-                <div className="form-item">
-                    <label htmlFor="username">Username</label>
-                    <Control.input model=".username" />
-                    <div className="desc">Please enter your username</div>
-                </div>
+            <div className="form-item">
+                <label htmlFor="username">Username</label>
+                <Control.input model=".username" />
+                <div className="desc">Please enter your username</div>
+            </div>
 
-                <div className="form-item">
-                    <label htmlFor="password">Password</label>
-                    <Control.input type="password" model=".password" />
-                    <div className="desc">Please enter your password</div>
-                </div>
+            <div className="form-item">
+                <label htmlFor="password">Password</label>
+                <Control.input type="password" model=".password" />
+                <div className="desc">Please enter your password</div>
+            </div>
 
-                <div className="form-item">
-                    <label htmlFor="email">Email</label>
-                    <Control.input type="email" model=".email" />
-                    <div className="desc">Please enter your email (required for registration)</div>
-                </div>
+            <div className="form-item">
+                <label htmlFor="email">Email</label>
+                <Control.input type="email" model=".email" />
+                <div className="desc">Please enter your email (required for registration)</div>
+            </div>
 
-                <div className="form-item">
-                    <button type="submit">Submit</button>
-                </div>
+            <div className="form-item">
+                <button type="submit">Submit</button>
+            </div>
 
-            </Form>
-        );
-    }
-}
+        </Form>
+    );
+};
 
 RegisterForm.propTypes = {
     dispatch: PropTypes.func.isRequired,
