@@ -8,10 +8,9 @@ import { SHOWREEL_API } from '../../constants';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
 import statusHandle from '../../utils/statusHandle';
 
-class LoginForm extends React.Component {
-
-    getJWTToken(data) {
-        this.props.dispatch(fetchJWTToken());
+const LoginForm = ({ dispatch }) => {
+    const getJWTToken = (data) => {
+        dispatch(fetchJWTToken());
 
         return fetch(`${SHOWREEL_API + 'authenticate/'}`, {
             method: 'POST',
@@ -29,39 +28,37 @@ class LoginForm extends React.Component {
         .then(response => response.json())
         .then(tokenString => tokenString)
         .catch(error => Promise.reject(error));
-    }
+    };
 
-    handleSubmit(val) {
-        this.getJWTToken(val).then((token) => {
-            this.props.dispatch(saveJWTToken(token));
-            this.props.dispatch(logInUser());
+    const handleSubmit = (val) => {
+        getJWTToken(val).then((token) => {
+            dispatch(saveJWTToken(token));
+            dispatch(logInUser());
         });
-    }
+    };
 
-    render() {
-        return (
-            <Form model="userLogin" className="form" onSubmit={(val) => this.handleSubmit(val)}>
+    return (
+        <Form model="userLogin" className="form" onSubmit={(val) => handleSubmit(val)}>
 
-                <div className="form-item">
-                    <label htmlFor="username">Username</label>
-                    <Control.input model=".username" />
-                    <div className="desc">Please enter your username</div>
-                </div>
+            <div className="form-item">
+                <label htmlFor="username">Username</label>
+                <Control.input model=".username" />
+                <div className="desc">Please enter your username</div>
+            </div>
 
-                <div className="form-item">
-                    <label htmlFor="password">Password</label>
-                    <Control.input type="password" model=".password" />
-                    <div className="desc">Please enter your password</div>
-                </div>
+            <div className="form-item">
+                <label htmlFor="password">Password</label>
+                <Control.input type="password" model=".password" />
+                <div className="desc">Please enter your password</div>
+            </div>
 
-                <div className="form-item">
-                    <button type="submit">Submit</button>
-                </div>
+            <div className="form-item">
+                <button type="submit">Submit</button>
+            </div>
 
-            </Form>
-        );
-    }
-}
+        </Form>
+    );
+};
 
 LoginForm.propTypes = {
     dispatch: PropTypes.func.isRequired,
