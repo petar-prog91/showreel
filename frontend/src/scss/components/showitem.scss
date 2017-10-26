@@ -1,0 +1,30 @@
+.showitem {
+
+    &__base {
+        @include span(12);
+
+        @include breakpoint($bp-medium, $bp-large) {
+            @include span(6);
+
+            &:nth-child(even) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($bp-large, $bp-xlarge) {
+            @include span(4);
+
+            &:nth-child(3n+3) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($bp-xlarge) {
+            @include span(3);
+
+            &:nth-child(4n+4) {
+                margin-right: 0;
+            }
+        }
+    }
+}

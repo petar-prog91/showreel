@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import ShowItem from '../../components/showitem/showitem';
 
 const ShowList = ({ listOfShows }) => (
-    <div className="showslist">
+    <div className="showslist__base">
         { listOfShows.map((item) => <ShowItem data={item} key={item.show.id} />) }
     </div>
 );
