@@ -1,10 +1,13 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router';
 
 const ShowItem = ({ data }) => (
-    <div className="showitem__base">
-        <img className="showitem__image" src={data.show.image.medium} alt={data.show.name} />
-        <h3>{data.show.name}</h3>
+    <div className="showslist__item">
+        <Link to={'/show/' + data.show.id}>
+            <img src={data.show.image.medium} alt={data.show.name} />
+            <h3>{data.show.name}</h3>
+        </Link>
     </div>
 );
 
