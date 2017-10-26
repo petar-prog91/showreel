@@ -20,8 +20,6 @@ class NotWatched extends React.Component {
         return (
             <div>
                 <h1>Not Watched page</h1>
-                <p>Work in progress</p>
-
                 <ShowList listOfShows={this.props.showsList} />
             </div>
         );
