@@ -4848,25 +4848,28 @@ body {
   margin-right: 0; }
   @media (min-width: 768px) and (max-width: 992px) {
     .showitem__base {
-      width: 49.15254%;
-      float: left;
-      margin-right: 1.69492%; }
-      .showitem__base:nth-child(even) {
-        margin-right: 0; } }
-  @media (min-width: 992px) and (max-width: 1200px) {
-    .showitem__base {
       width: 32.20339%;
       float: left;
       margin-right: 1.69492%; }
       .showitem__base:nth-child(3n+3) {
         margin-right: 0; } }
-  @media (min-width: 1200px) {
+  @media (min-width: 992px) and (max-width: 1200px) {
     .showitem__base {
       width: 23.72881%;
       float: left;
       margin-right: 1.69492%; }
       .showitem__base:nth-child(4n+4) {
         margin-right: 0; } }
+  @media (min-width: 1200px) {
+    .showitem__base {
+      width: 15.25424%;
+      float: left;
+      margin-right: 1.69492%; }
+      .showitem__base:nth-child(6n+6) {
+        margin-right: 0; } }
+
+.showitem__image {
+  width: 100%; }
 
 .loginPage__base {
   width: 100%;
