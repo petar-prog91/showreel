@@ -7,9 +7,7 @@ const initialState = {
 const showsState = (state = initialState, action) => {
     switch (action.type) {
     case SHOWS_LOAD:
-        return Object.assign({}, state, {
-            showsList: action.data,
-        });
+        return Object.assign({}, state, { showsList: action.showsList });
     default:
         return state;
     }

@@ -1,6 +1,6 @@
 import { SHOWS_LOAD } from '../constants';
 
-export const loadShows = (shows) => ({
+export const loadShows = (showsList) => ({
     type: SHOWS_LOAD,
-    showsList: shows,
+    showsList,
 });

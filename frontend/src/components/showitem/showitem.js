@@ -2,7 +2,9 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 const ShowItem = ({ data }) => (
-    <div className="showitem">{ data }</div>
+    <ul className="showitem">
+        <li>{data.show.name}</li>
+    </ul>
 );
 
 ShowItem.propTypes = {
