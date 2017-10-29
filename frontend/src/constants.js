@@ -8,3 +8,4 @@ export const SHOWREEL_API = 'http://localhost:8080/api/';
 export const TV_MAZE_API = 'http://api.tvmaze.com';
 export const REGISTER_USER = 'REGISTER_USER';
 export const SHOWS_LOAD = 'SHOWS_LOAD';
+export const SHOW_SEASONS_LOAD = 'SHOW_SEASONS_LOAD';
