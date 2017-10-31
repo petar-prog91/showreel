@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 const ShowSeasons = ({ data }) => (
     <div className="show__showepisodes">
         <ul>
-            {data.episodes.map((episode) => <li key={episode.id}>{episode.name}</li>)}
+            { data.seasons.map((seasons) => seasons.map((episode) => <li key={episode.name}>{episode.name}</li>)) }
         </ul>
     </div>
 );

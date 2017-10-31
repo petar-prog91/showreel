@@ -34,7 +34,7 @@ class Show extends React.Component {
             standardData = <ShowData data={this.props.showsList[0].show} />;
         }
 
-        if (this.props.showsList[0].show.episodes) {
+        if (this.props.showsList[0].show.seasons) {
             showsSeasons = <ShowSeasons data={this.props.showsList[0].show} />;
         }
 
