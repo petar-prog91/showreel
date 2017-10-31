@@ -5,7 +5,7 @@ import { TV_MAZE_API } from '../../constants';
 import statusHandle from '../../utils/statusHandle';
 
 import { loadShows, loadEpisodesForShow } from '../../actions/shows';
-import { ShowData } from '../../components';
+import { ShowData, ShowSeasons } from '../../components';
 
 class Show extends React.Component {
     componentDidMount() {
@@ -26,37 +26,23 @@ class Show extends React.Component {
         .catch(error => Promise.reject(error));
     }
 
-    getSummary() {
-        return { __html: this.props.showsList[0].show.summary };
-    }
-
-    renderShowEpisodes() {
-        return (
-            <div className="show__showepisodes">
-                <ul>
-                    {this.props.showsList[0].show.episodes.map((episode) => <li key={episode.id}>{episode.name}</li>)}
-                </ul>
-            </div>
-        );
-    }
-
     render() {
         let standardData;
-        let showsEpisodes;
+        let showsSeasons;
 
         if (this.props.showsList[0].show) {
             standardData = <ShowData data={this.props.showsList[0].show} />;
         }
 
         if (this.props.showsList[0].show.episodes) {
-            showsEpisodes = this.renderShowEpisodes();
+            showsSeasons = <ShowSeasons data={this.props.showsList[0].show} />;
         }
 
         return (
             <div className="show__base">
                 {standardData}
 
-                {showsEpisodes}
+                {showsSeasons}
             </div>
         );
     }
