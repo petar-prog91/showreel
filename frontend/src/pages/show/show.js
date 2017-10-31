@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { TV_MAZE_API } from '../../constants';
 import statusHandle from '../../utils/statusHandle';
 
-import { loadShows, loadSeasonsForShow } from '../../actions/shows';
+import { loadShows, loadEpisodesForShow } from '../../actions/shows';
 
 class Show extends React.Component {
     componentDidMount() {
@@ -13,15 +13,15 @@ class Show extends React.Component {
         .then(response => response.json())
         .then(response => [{ show: response }])
         .then(response => this.props.loadShows(response))
-        .then(this.getShowSeasons())
+        .then(this.getShowEpisodes())
         .catch(error => Promise.reject(error));
     }
 
-    getShowSeasons() {
-        return fetch(`${TV_MAZE_API + '/shows/' + this.props.params.id + '/seasons'}`)
+    getShowEpisodes() {
+        return fetch(`${TV_MAZE_API + '/shows/' + this.props.params.id + '/episodes'}`)
         .then(statusHandle)
         .then(response => response.json())
-        .then(response => this.props.loadSeasonsForShow(response))
+        .then(response => this.props.loadEpisodesForShow(response))
         .catch(error => Promise.reject(error));
     }
 
@@ -29,9 +29,9 @@ class Show extends React.Component {
         return { __html: this.props.showsList[0].show.summary };
     }
 
-    render() {
+    renderStandardData() {
         return (
-            <div className="show__base">
+            <div>
                 <h1>{this.props.showsList[0].show.name}</h1>
 
                 <div className="show__image">
@@ -46,12 +46,36 @@ class Show extends React.Component {
                     </ul>
                     <div dangerouslySetInnerHTML={this.getSummary()} />
                 </div>
+            </div>
+        );
+    }
 
-                <div className="show__showseasons">
-                    <ul>
-                        {this.props.showsList[0].show.seasons.map((season) => <li key={season.id}>{season.id}</li>)}
-                    </ul>
-                </div>
+    renderShowEpisodes() {
+        return (
+            <div className="show__showepisodes">
+                <ul>
+                    {this.props.showsList[0].show.episodes.map((episode) => <li key={episode.id}>{episode.name}</li>)}
+                </ul>
+            </div>
+        );
+    }
+
+    render() {
+        let standardData = null;
+        let showsEpisodes = null;
+        if (this.props.showsList[0].show) {
+            standardData = this.renderStandardData();
+        }
+
+        if (this.props.showsList[0].show.episodes) {
+            showsEpisodes = this.renderShowEpisodes();
+        }
+
+        return (
+            <div className="show__base">
+                {standardData}
+
+                {showsEpisodes}
             </div>
         );
     }
@@ -60,11 +84,11 @@ class Show extends React.Component {
 Show.propTypes = {
     showsList: PropTypes.array.isRequired,
     loadShows: PropTypes.func.isRequired,
-    loadSeasonsForShow: PropTypes.func.isRequired,
+    loadEpisodesForShow: PropTypes.func.isRequired,
     params: PropTypes.any.isRequired,
 };
 
 export default connect(
     state => ({ showsList: state.showsState.showsList }),
-    { loadShows, loadSeasonsForShow },
+    { loadShows, loadEpisodesForShow },
 )(Show);
