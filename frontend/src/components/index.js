@@ -5,3 +5,4 @@ export LoginForm from './loginform/loginform';
 export RegisterForm from './registerform/registerform';
 export ShowList from './showlist/showlist';
 export ShowItem from './showitem/showitem';
+export ShowData from './showdata/showdata';

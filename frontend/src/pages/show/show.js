@@ -5,6 +5,7 @@ import { TV_MAZE_API } from '../../constants';
 import statusHandle from '../../utils/statusHandle';
 
 import { loadShows, loadEpisodesForShow } from '../../actions/shows';
+import { ShowData } from '../../components';
 
 class Show extends React.Component {
     componentDidMount() {
@@ -29,27 +30,6 @@ class Show extends React.Component {
         return { __html: this.props.showsList[0].show.summary };
     }
 
-    renderStandardData() {
-        return (
-            <div>
-                <h1>{this.props.showsList[0].show.name}</h1>
-
-                <div className="show__image">
-                    <img src={this.props.showsList[0].show.image.medium} alt={this.props.showsList[0].show.name} />
-                </div>
-
-                <div className="show__data">
-                    <p>{this.props.showsList[0].show.type} Rating: {this.props.showsList[0].show.rating.average}</p>
-                    <p>{this.props.showsList[0].show.status}</p>
-                    <ul>
-                        {this.props.showsList[0].show.genres.map((genre) => <li key={genre}>{genre}</li>)}
-                    </ul>
-                    <div dangerouslySetInnerHTML={this.getSummary()} />
-                </div>
-            </div>
-        );
-    }
-
     renderShowEpisodes() {
         return (
             <div className="show__showepisodes">
@@ -61,10 +41,11 @@ class Show extends React.Component {
     }
 
     render() {
-        let standardData = null;
-        let showsEpisodes = null;
+        let standardData;
+        let showsEpisodes;
+
         if (this.props.showsList[0].show) {
-            standardData = this.renderStandardData();
+            standardData = <ShowData data={this.props.showsList[0].show} />;
         }
 
         if (this.props.showsList[0].show.episodes) {
