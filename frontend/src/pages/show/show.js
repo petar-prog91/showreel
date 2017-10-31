@@ -19,7 +19,7 @@ class Show extends React.Component {
     }
 
     getShowEpisodes() {
-        return fetch(`${TV_MAZE_API + '/shows/' + this.props.params.id + '/episodes'}`)
+        fetch(`${TV_MAZE_API + '/shows/' + this.props.params.id + '/episodes'}`)
         .then(statusHandle)
         .then(response => response.json())
         .then(response => this.props.loadEpisodesForShow(response))
