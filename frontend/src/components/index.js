@@ -7,3 +7,4 @@ export ShowList from './showlist/showlist';
 export ShowItem from './showitem/showitem';
 export ShowData from './showdata/showdata';
 export ShowSeasons from './showseasons/showseasons';
+export Search from './search/search';

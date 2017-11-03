@@ -6,6 +6,8 @@ import { TV_MAZE_API } from '../../constants';
 import statusHandle from '../../utils/statusHandle';
 
 import ShowList from '../../components/showlist/showlist';
+import Search from '../../components/search/search';
+
 import { loadShows } from '../../actions/shows';
 
 class Explore extends React.Component {
@@ -21,6 +23,7 @@ class Explore extends React.Component {
         return (
             <div>
                 <h1>Explore Page</h1>
+                <Search />
                 <ShowList listOfShows={this.props.showsList} />
             </div>
         );

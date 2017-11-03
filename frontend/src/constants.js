@@ -9,3 +9,4 @@ export const TV_MAZE_API = 'http://api.tvmaze.com';
 export const REGISTER_USER = 'REGISTER_USER';
 export const SHOWS_LOAD = 'SHOWS_LOAD';
 export const SHOW_EPISODES_LOAD = 'SHOW_EPISODES_LOAD';
+export const SEARCH_SHOW = 'SEARCH_SHOW';
