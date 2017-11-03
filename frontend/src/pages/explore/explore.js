@@ -12,11 +12,13 @@ import { loadShows } from '../../actions/shows';
 
 class Explore extends React.Component {
     componentDidMount() {
-        fetch(`${TV_MAZE_API + '/schedule?country=US&date=2014-12-01'}`)
-        .then(statusHandle)
-        .then(response => response.json())
-        .then(response => this.props.loadShows(response))
-        .catch(error => Promise.reject(error));
+        if (this.props.search.search !== '') {
+            fetch(`${TV_MAZE_API + '/search/shows?q=' + this.props.search.search}`)
+            .then(statusHandle)
+            .then(response => response.json())
+            .then(response => this.props.loadShows(response))
+            .catch(error => Promise.reject(error));
+        }
     }
 
     render() {
@@ -33,9 +35,10 @@ class Explore extends React.Component {
 Explore.propTypes = {
     showsList: PropTypes.array.isRequired,
     loadShows: PropTypes.func.isRequired,
+    search: PropTypes.object.isRequired,
 };
 
 export default connect(
-    state => ({ showsList: state.showsState.showsList }),
+    state => ({ showsList: state.showsState.showsList, search: state.search }),
     { loadShows },
 )(Explore);

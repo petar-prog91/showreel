@@ -9,12 +9,10 @@ import { loadShows } from '../../actions/shows';
 import statusHandle from '../../utils/statusHandle';
 
 const Search = ({ dispatch }) => {
-    const getShowsByString = (searchVal) => {
-        return fetch(`${TV_MAZE_API + '/search/shows?q=' + searchVal}`)
+    const getShowsByString = (searchVal) => fetch(`${TV_MAZE_API + '/search/shows?q=' + searchVal}`)
         .then(statusHandle)
         .then(response => response.json())
         .catch(error => Promise.reject(error));
-    };
 
     const handleSubmit = (formVal) => {
         getShowsByString(formVal.search).then((searchResults) => dispatch(loadShows(searchResults)));
