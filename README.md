@@ -25,9 +25,8 @@ Before starting the project, you need to have these requirements installed on yo
 - Visit `http://localhost:8085` and log in with admin data (admin / admin12345)
 
 
-## Running the tests
-
-TODO
+## TODO Stuff
+- Replace Bee Golang backend with Node.js and enable back-end rendering of the page (react / redux)
 
 ## Deployment
 
