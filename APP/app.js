@@ -1,5 +1,4 @@
 const port = 4040;
-const spdy = require('spdy');
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -14,13 +13,7 @@ app.get('*', (req, res) => {
     res.sendFile('/index.html');
 });
 
-const options = {
-    key: fs.readFileSync(__dirname + '/server.key'),
-    cert:  fs.readFileSync(__dirname + '/server.crt')
-};
-
-spdy
-  .createServer(options, app)
+app
   .listen(port, (error) => {
     if (error) {
       console.error(error)
