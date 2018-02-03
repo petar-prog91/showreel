@@ -37,7 +37,6 @@ services:
     ports:
       - "3308:3306"
 
-frontend: 
   app_frontend:
     build: ./APP
     links:
