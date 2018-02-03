@@ -5,11 +5,13 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
+app.use(express.static(__dirname + '/views'));
+//Store all HTML files in view folder.
+app.use(express.static(__dirname + '/public'));
+//Store all JS and CSS in Scripts folder.
 
 app.get('*', (req, res) => {
-    res
-      .status(200)
-      .json({message: 'ok'})
+    res.sendFile('/index.html');
 });
 
 const options = {
