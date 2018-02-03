@@ -37,5 +37,13 @@ services:
     ports:
       - "3308:3306"
 
+frontend: 
+  app_frontend:
+    build: ./APP
+    links:
+      - api_gateway
+    ports:
+      - "4040:8080"
+
 volumes:
     db_data:
