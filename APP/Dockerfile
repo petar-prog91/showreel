@@ -2,10 +2,12 @@ FROM node:carbon
 
 WORKDIR /usr/src/app
 COPY package*.json ./
+COPY . .
 
 RUN npm install
+RUN ls
+RUN npm run build
 
-COPY . .
-CMD [ "npm", "start" ]
+CMD ["node", "app.js"]
 
 EXPOSE 4040
