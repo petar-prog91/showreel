@@ -13,23 +13,15 @@ If you wish to have ease of deployment and not worry about getting all the requi
 - Navigate into the folder of the project.
 - In your terminal run command `docker-compose build`.
 - Once that is finished, run `docker-compose up`.
-- By default API will run under `http://localhost:8080`
-- Sometimes, if some application is already running on port 8080 (very usual case for developers), it's best to adjust ports in docker-compose.yml file
-
-# Database
-- Once you have all docker containers running, using whatever method you know connect to your local MySQL database on port 3308 (MySQL DB is provided by docker, so no need for installations)
-- If there isn't database called `showreel` create one
-- Once logged in the database, import file `API/showreel_init.sql` from this repo
+- By default API will run under `http://localhost:9090`
+- To open the app, navigate to `http://localhost:4040`
+- You can either log in with default user `admin` / `admin12345` or you can register your own user on the register page.
+- If you wish to change ports, please make sure to have it reflected both in code and docker-compose.yml file
 
 ## TODO Stuff
-- Replace Bee Golang backend with Node.js and enable back-end rendering of the page (react / redux)
-
-## Deployment
-
-TODO
+- Enable React server side rendering.
 
 ## Contributing
-
 TODO
 
 ## Authors
