@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/petar-prog91/showreel-api/users_service/models"
+	"github.com/petar-prog91/showreel/API/users_service/models"
 )
 
 func StatusUnauthorized(w http.ResponseWriter) {

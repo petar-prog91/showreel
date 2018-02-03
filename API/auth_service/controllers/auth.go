@@ -8,9 +8,9 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/petar-prog91/showreel-api/auth_service/actions"
-	"github.com/petar-prog91/showreel-api/auth_service/models"
-	"github.com/petar-prog91/showreel-api/helpers"
+	"github.com/petar-prog91/showreel/API/auth_service/actions"
+	"github.com/petar-prog91/showreel/API/auth_service/models"
+	"github.com/petar-prog91/showreel/API/helpers"
 )
 
 func Authenticate(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {

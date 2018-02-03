@@ -5,7 +5,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 
-	"github.com/petar-prog91/showreel-api/helpers"
+	"github.com/petar-prog91/showreel/API/helpers"
 
 	"github.com/codegangsta/martini"
 )
