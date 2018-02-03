@@ -28,8 +28,8 @@
 [[projects]]
   name = "github.com/gorilla/handlers"
   packages = ["."]
-  revision = "a4043c62cc2329bacda331d33fc908ab11ef0ec3"
-  version = "v1.2.1"
+  revision = "90663712d74cb411cbef281bc1e08c19d1a76145"
+  version = "v1.3.0"
 
 [[projects]]
   name = "github.com/julienschmidt/httprouter"
@@ -39,25 +39,25 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/petar-prog91/showreel-api"
-  packages = ["helpers","users_service/actions","users_service/config","users_service/controllers","users_service/models"]
-  revision = "e4cbbeb43d524565f41aefc1c455c404b294241e"
+  name = "github.com/petar-prog91/showreel"
+  packages = ["API/helpers","API/users_service/actions","API/users_service/config","API/users_service/controllers","API/users_service/models"]
+  revision = "684e64a82851e23bde2f56397685f32defb84f2b"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["bcrypt","blowfish"]
-  revision = "edd5e9b0879d13ee6970a50153d85b8fec9f7686"
+  revision = "1875d0a70c90e57f11972aefd42276df65e895b9"
 
 [[projects]]
   name = "upper.io/db.v3"
   packages = [".","internal/cache","internal/cache/hashstructure","internal/immutable","internal/sqladapter","internal/sqladapter/compat","internal/sqladapter/exql","lib/reflectx","lib/sqlbuilder","mysql"]
-  revision = "4ceccb1227aba5fc0f71ca3adc5dd759dfbc093e"
-  version = "v3.5.0"
+  revision = "7c550bc7b8b2915197ae407336e1fe2a6504222d"
+  version = "v3.5.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "47ce07b7e00d94d367dad7ac6a583914de66641431c4612859794030b6b77498"
+  inputs-digest = "b66db813a086984c6cbf6d8d37b1d6e422b8f0e3d32c1ab89a6582b56053aa19"
   solver-name = "gps-cdcl"
   solver-version = 1

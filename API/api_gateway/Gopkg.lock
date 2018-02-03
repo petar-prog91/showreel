@@ -27,13 +27,13 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/petar-prog91/showreel-api"
-  packages = ["helpers","users_service/models"]
-  revision = "e4cbbeb43d524565f41aefc1c455c404b294241e"
+  name = "github.com/petar-prog91/showreel"
+  packages = ["API/helpers","API/users_service/models"]
+  revision = "684e64a82851e23bde2f56397685f32defb84f2b"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0228936625292fd6d7485521e38675e2d8a87e5305cf3b5738600c7855626d78"
+  inputs-digest = "28fdcd552225c0e5504b7cd79dcfccb9a5345d764119e7eea066988e7a2d4b86"
   solver-name = "gps-cdcl"
   solver-version = 1
