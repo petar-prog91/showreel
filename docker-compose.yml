@@ -43,7 +43,7 @@ frontend:
     links:
       - api_gateway
     ports:
-      - "4040:8080"
+      - "4040:4040"
 
 volumes:
     db_data:
