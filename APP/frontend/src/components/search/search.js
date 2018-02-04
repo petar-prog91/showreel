@@ -1,29 +1,39 @@
 import React from 'react';
-import { Control, Form } from 'react-redux-form';
-import { connect } from 'react-redux';
 import fetch from 'isomorphic-fetch';
 import { PropTypes } from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
 
 import { TV_MAZE_API } from '../../constants';
 import { loadShows } from '../../actions/shows';
 import statusHandle from '../../utils/statusHandle';
 
-const Search = ({ dispatch }) => {
-    const getShowsByString = (searchVal) => fetch(`${TV_MAZE_API + '/search/shows?q=' + searchVal}`)
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+    <div>
+      <label htmlFor={input.id}>{label}</label>
+      <div>
+        <input {...input} placeholder={label} type={type} />
+        {touched && error && <span>{error}</span>}
+      </div>
+    </div>
+);
+
+const getShowsByString = (searchVal) => fetch(`${TV_MAZE_API + '/search/shows?q=' + searchVal}`)
         .then(statusHandle)
         .then(response => response.json())
         .catch(error => Promise.reject(error));
 
-    const handleSubmit = (formVal) => {
-        getShowsByString(formVal.search).then((searchResults) => dispatch(loadShows(searchResults)));
-    };
+const submit = (formVal) => {
+    getShowsByString(formVal.search).then((searchResults) => dispatch(loadShows(searchResults)));
+};
+
+const Search = (props) => {
+    const { handleSubmit } = props;
 
     return (
-        <Form model="search" className="form" onSubmit={(val) => handleSubmit(val)}>
+        <form className="form" onSubmit={handleSubmit(submit)}>
 
             <div className="form-item">
-                <label htmlFor="username">Search Field</label>
-                <Control.input model=".search" />
+                <Field name="search" type="text" component={renderField} label="Search Field" />
                 <div className="desc">Search for shows</div>
             </div>
 
@@ -31,12 +41,21 @@ const Search = ({ dispatch }) => {
                 <button type="submit">Submit</button>
             </div>
 
-        </Form>
+        </form>
     );
 };
 
-Search.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+renderField.propTypes = {
+    input: PropTypes.object.isRequired,
+    label: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    meta: PropTypes.object.isRequired,
 };
 
-export default connect()(Search);
+Search.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+};
+
+export default reduxForm({
+    form: 'searchForm',
+})(Search);
