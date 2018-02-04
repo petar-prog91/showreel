@@ -1,32 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { PropTypes } from 'prop-types';
-import fetch from 'isomorphic-fetch';
 
 import { SHOWREEL_API } from '../../constants';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
-import statusHandle from '../../utils/statusHandle';
-
-const getJWTToken = (data, dispatch) => {
-    dispatch(fetchJWTToken());
-
-    return fetch(`${SHOWREEL_API + 'authenticate/'}`, {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify({
-            username: data.username,
-            password: data.password,
-        }),
-    })
-    .then(statusHandle)
-    .then(response => response.json())
-    .then(tokenString => tokenString)
-    .catch(error => Promise.reject(error));
-};
+import getJWTToken from '../../services/jwtToken';
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <div>
@@ -39,7 +17,9 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 );
 
 const submit = (val, dispatch) => {
-    getJWTToken(val, dispatch).then((token) => {
+    dispatch(fetchJWTToken());
+
+    getJWTToken(SHOWREEL_API, val).then((token) => {
         dispatch(saveJWTToken(token));
         dispatch(logInUser());
     });

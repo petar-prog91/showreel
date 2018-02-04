@@ -7,27 +7,7 @@ import { SHOWREEL_API } from '../../constants';
 import { registerUser } from '../../actions/register';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
 import statusHandle from '../../utils/statusHandle';
-
-const getJWTToken = (data, dispatch) => {
-    dispatch(fetchJWTToken());
-
-    return fetch(`${SHOWREEL_API + 'authenticate/'}`, {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify({
-            username: data.username,
-            password: data.password,
-        }),
-    })
-    .then(statusHandle)
-    .then(response => response.json())
-    .then(tokenString => tokenString)
-    .catch(error => Promise.reject(error));
-};
+import getJWTToken from '../../services/jwtToken';
 
 const registerUserFn = (data, dispatch) => {
     dispatch(registerUser());
@@ -52,7 +32,10 @@ const registerUserFn = (data, dispatch) => {
 
 const submit = (val, dispatch) => {
     registerUserFn(val, dispatch)
-    .then(() => getJWTToken(val, dispatch))
+    .then(() => {
+        dispatch(fetchJWTToken());
+        getJWTToken(SHOWREEL_API, val);
+    })
     .then((token) => {
         dispatch(saveJWTToken(token));
         dispatch(logInUser());
