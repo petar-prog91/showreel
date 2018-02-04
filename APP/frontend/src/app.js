@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { combineForms } from 'react-redux-form';
+import { reducer as formReducer } from 'redux-form';
 
 import * as reducers from './reducers';
+
 import {
     App,
     Home,
@@ -18,8 +19,9 @@ import {
     Show,
 } from './pages';
 
-const reducer = combineForms({
+const reducer = combineReducers({
     ...reducers,
+    form: formReducer,
 });
 
 const store = createStore(
