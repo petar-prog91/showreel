@@ -1,84 +1,92 @@
 import React from 'react';
-import { Control, Form } from 'react-redux-form';
-import { connect } from 'react-redux';
-import fetch from 'isomorphic-fetch';
+import { Field, reduxForm } from 'redux-form';
 import { PropTypes } from 'prop-types';
+import fetch from 'isomorphic-fetch';
 
 import { SHOWREEL_API } from '../../constants';
 import { registerUser } from '../../actions/register';
 import { logInUser, fetchJWTToken, saveJWTToken } from '../../actions/login';
 import statusHandle from '../../utils/statusHandle';
 
-const RegisterForm = ({ dispatch }) => {
-    const getJWTToken = (data) => {
-        dispatch(fetchJWTToken());
+const getJWTToken = (data, dispatch) => {
+    dispatch(fetchJWTToken());
 
-        return fetch(`${SHOWREEL_API + 'authenticate/'}`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            credentials: 'same-origin',
-            body: JSON.stringify({
-                username: data.username,
-                password: data.password,
-            }),
-        })
-        .then(statusHandle)
-        .then(response => response.json())
-        .then(tokenString => tokenString)
-        .catch(error => Promise.reject(error));
-    };
+    return fetch(`${SHOWREEL_API + 'authenticate/'}`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+            username: data.username,
+            password: data.password,
+        }),
+    })
+    .then(statusHandle)
+    .then(response => response.json())
+    .then(tokenString => tokenString)
+    .catch(error => Promise.reject(error));
+};
 
-    const registerUserFn = (data) => {
-        dispatch(registerUser());
+const registerUserFn = (data, dispatch) => {
+    dispatch(registerUser());
 
-        return fetch(`${SHOWREEL_API + 'users/'}`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            credentials: 'same-origin',
-            body: JSON.stringify({
-                username: data.username,
-                password: data.password,
-                email: data.email,
-            }),
-        })
-        .then(statusHandle)
-        .then(response => response.json())
-        .catch(error => Promise.reject(error));
-    };
+    return fetch(`${SHOWREEL_API + 'users/'}`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+            username: data.username,
+            password: data.password,
+            email: data.email,
+        }),
+    })
+    .then(statusHandle)
+    .then(response => response.json())
+    .catch(error => Promise.reject(error));
+};
 
-    const handleSubmit = (val) => {
-        registerUserFn(val)
-        .then(() => getJWTToken(val))
-        .then((token) => {
-            dispatch(saveJWTToken(token));
-            dispatch(logInUser());
-        });
-    };
+const submit = (val, dispatch) => {
+    registerUserFn(val, dispatch)
+    .then(() => getJWTToken(val, dispatch))
+    .then((token) => {
+        dispatch(saveJWTToken(token));
+        dispatch(logInUser());
+    });
+};
+
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+    <div>
+      <label htmlFor={input.id}>{label}</label>
+      <div>
+        <input {...input} placeholder={label} type={type} />
+        {touched && error && <span>{error}</span>}
+      </div>
+    </div>
+);
+
+const RegisterForm = (props) => {
+    const { handleSubmit } = props;
 
     return (
-        <Form model="userRegister" className="form" onSubmit={(val) => handleSubmit(val)}>
+        <form className="form" onSubmit={handleSubmit(submit)}>
 
             <div className="form-item">
-                <label htmlFor="username">Username</label>
-                <Control.input model=".username" />
+                <Field name="username" type="text" component={renderField} label="Username" />
                 <div className="desc">Please enter your username</div>
             </div>
 
             <div className="form-item">
-                <label htmlFor="password">Password</label>
-                <Control.input type="password" model=".password" />
+            <Field name="password" type="password" component={renderField} label="Password" />
                 <div className="desc">Please enter your password</div>
             </div>
 
             <div className="form-item">
-                <label htmlFor="email">Email</label>
-                <Control.input type="email" model=".email" />
+            <Field name="email" type="email" component={renderField} label="Email" />
                 <div className="desc">Please enter your email (required for registration)</div>
             </div>
 
@@ -86,12 +94,22 @@ const RegisterForm = ({ dispatch }) => {
                 <button type="submit">Submit</button>
             </div>
 
-        </Form>
+        </form>
     );
 };
 
-RegisterForm.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+renderField.propTypes = {
+    input: PropTypes.object.isRequired,
+    label: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    meta: PropTypes.object.isRequired,
 };
 
-export default connect()(RegisterForm);
+RegisterForm.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+};
+
+export default reduxForm({
+    form: 'registerForm',
+})(RegisterForm);
+
